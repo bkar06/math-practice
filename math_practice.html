@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Practice | Brain Boost</title>
+<style>
+:root{--ink:#18223b;--muted:#667085;--blue:#4f6cff;--purple:#8b5cf6;--mint:#dffaf2;--bg:#f5f7ff;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,ui-rounded,"Segoe UI",system-ui,sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 5%,#e7eaff 0,transparent 28%),radial-gradient(circle at 90% 15%,#dffaf2 0,transparent 25%),var(--bg);min-height:100vh}
+header{max-width:1100px;margin:auto;padding:24px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.1rem}
+.logo{width:45px;height:45px;border-radius:15px;background:linear-gradient(135deg,var(--blue),var(--purple));display:grid;place-items:center;color:white;font-size:25px;box-shadow:0 8px 20px #4f6cff40}
+.tag{background:#fff;border:1px solid #e7e9f4;border-radius:999px;padding:9px 14px;color:var(--muted);font-size:.85rem}
+main{max-width:1100px;margin:auto;padding:20px 22px 55px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:center;margin:18px 0 30px}
+h1{font-size:clamp(2.3rem,5vw,4.3rem);line-height:1.02;letter-spacing:-.055em;margin:0 0 16px}
+h1 span{background:linear-gradient(90deg,var(--blue),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:1.05rem;line-height:1.7;max-width:560px}
+.hero-art{min-height:225px;border-radius:30px;background:linear-gradient(135deg,#e8eaff,#e2fff4);display:grid;place-items:center;position:relative;overflow:hidden}
+.math-bubble{background:white;border-radius:22px;padding:22px 28px;font-size:2rem;font-weight:900;box-shadow:0 18px 45px #29365c18;transform:rotate(-5deg)}
+.math-bubble small{display:block;font-size:.8rem;color:#8b5cf6;margin-top:8px;text-align:center}
+.spark{position:absolute;font-size:28px}.s1{top:22px;left:25px}.s2{right:30px;top:35px}.s3{bottom:20px;left:45px}
+.layout{display:grid;grid-template-columns:280px 1fr;gap:22px}
+.panel,.practice{background:var(--card);border:1px solid #e9ecf5;border-radius:25px;box-shadow:0 12px 35px #25345c08}
+.panel{padding:22px;height:max-content}
+.panel h2{font-size:1.1rem;margin:0 0 18px}
+label{display:block;font-size:.82rem;color:var(--muted);font-weight:700;margin:16px 0 8px}
+select{width:100%;padding:12px;border:1px solid #e3e7f1;border-radius:13px;background:#fbfcff;color:var(--ink);font:inherit}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.stat{background:#f7f8ff;border-radius:15px;padding:14px}.stat strong{display:block;font-size:1.4rem}.stat span{font-size:.75rem;color:var(--muted)}
+.practice{padding:clamp(20px,4vw,36px);text-align:center}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--muted);font-size:.85rem}
+.progress{height:7px;background:#edf0f8;border-radius:20px;margin:18px 0 30px;overflow:hidden}.progress div{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--purple));transition:width .3s}
+.question{font-size:clamp(2.5rem,6vw,4.3rem);font-weight:900;letter-spacing:-.04em;margin:22px 0}
+.answers{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:480px;margin:0 auto}
+.answer{border:2px solid #e9ecf5;background:#fff;border-radius:16px;padding:16px;font-size:1.25rem;font-weight:800;cursor:pointer;transition:.15s}
+.answer:hover{border-color:#a9b5ff;transform:translateY(-2px);background:#f8f9ff}
+.answer.correct{border-color:#22c58b;background:#e9fff6}.answer.wrong{border-color:#ff7373;background:#fff0f0}
+.feedback{min-height:28px;margin:18px 0 6px;font-weight:700}
+.primary{border:0;background:linear-gradient(90deg,var(--blue),var(--purple));color:white;border-radius:14px;padding:14px 22px;font-weight:800;font-size:1rem;cursor:pointer;box-shadow:0 8px 20px #4f6cff30}
+.primary:disabled{opacity:.45;cursor:not-allowed}
+.secondary{border:1px solid #e2e6f0;background:white;color:var(--ink);border-radius:14px;padding:12px 16px;font-weight:800;cursor:pointer}
+.controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:22px}
+@media(max-width:760px){header{padding:18px}main{padding:10px 16px 35px}.hero{grid-template-columns:1fr;gap:14px}.hero-art{min-height:170px}.layout{grid-template-columns:1fr}.panel{order:2}.practice{order:1}.tag{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><div class="logo">✦</div><span>Brain Boost <span style="color:#8b5cf6">Math</span></span></div>
+  <div class="tag">✨ Learn • Play • Grow</div>
+</header>
+<main>
+  <section class="hero">
+    <div><h1>Math can be<br><span>fun!</span></h1><p>Sharpen your mind with quick challenges. Practice addition, subtraction, multiplication, and number puzzles—one question at a time.</p></div>
+    <div class="hero-art"><span class="spark s1">✦</span><span class="spark s2">＋</span><span class="spark s3">÷</span><div class="math-bubble">12 × 4 = ?<small>YOU’VE GOT THIS!</small></div></div>
+  </section>
+  <section class="layout">
+    <aside class="panel">
+      <h2>🎯 Practice setup</h2>
+      <label for="topic">Choose a topic</label>
+      <select id="topic"><option value="mixed">Mixed practice</option><option value="addition">Addition</option><option value="subtraction">Subtraction</option><option value="multiplication">Multiplication</option><option value="puzzle">Number puzzles</option></select>
+      <label for="level">Difficulty</label>
+      <select id="level"><option value="easy">Easy</option><option value="medium" selected>Medium</option><option value="hard">Hard</option></select>
+      <label for="rounds">Questions</label>
+      <select id="rounds"><option>5</option><option selected>10</option><option>15</option><option>20</option></select>
+      <button class="primary" style="width:100%;margin-top:18px" onclick="startGame()">Start practice ↗</button>
+      <div class="stats"><div class="stat"><strong id="score">0</strong><span>Score</span></div><div class="stat"><strong id="streak">0</strong><span>Best streak</span></div></div>
+    </aside>
+    <section class="practice">
+      <div class="topline"><span id="round">Ready when you are</span><span>⚡ <b id="accuracy">0%</b> accuracy</span></div>
+      <div class="progress"><div id="bar"></div></div>
+      <div id="question" class="question">Ready to play?</div>
+      <div id="answers" class="answers"><button class="answer" onclick="startGame()">Let's begin!</button></div>
+      <div id="feedback" class="feedback">Choose a topic and tap “Start practice”.</div>
+      <div class="controls"><button id="next" class="primary" onclick="nextQuestion()" disabled>Next question →</button><button class="secondary" onclick="startGame()">Restart</button></div>
+    </section>
+  </section>
+</main>
+<footer>Made for curious minds ✨ Keep practicing—you’re getting stronger!</footer>
+<script>
+let current=0,total=10,score=0,streak=0,best=0,correctCount=0,answered=false,answerValue=0;
+const $=id=>document.getElementById(id);
+function rand(n){return Math.floor(Math.random()*n)}
+function difficulty(){return $('level').value}
+function makeQuestion(){
+ const topic=$('topic').value, level=difficulty();
+ let max=level==='easy'?10:level==='medium'?25:100;
+ let op=topic==='mixed'?['addition','subtraction','multiplication','puzzle'][rand(4)]:topic;
+ let a,b,q,ans;
+ if(op==='addition'){a=rand(max)+1;b=rand(max)+1;q=`${a} + ${b} = ?`;ans=a+b}
+ else if(op==='subtraction'){a=rand(max)+1;b=rand(a)+1;q=`${a} − ${b} = ?`;ans=a-b}
+ else if(op==='multiplication'){let cap=level==='easy'?10:level==='medium'?12:20;a=rand(cap)+1;b=rand(cap)+1;q=`${a} × ${b} = ?`;ans=a*b}
+ else {a=rand(12)+3;b=rand(12)+2;let c=a+b;q=`${a}, ${b}, ${c}, ___`;ans=c+(c-b)}
+ return {q,ans};
+}
+function startGame(){current=0;total=+$('rounds').value;score=0;streak=0;best=0;correctCount=0;updateStats();nextQuestion(true)}
+function nextQuestion(first=false){
+ if(!first&&current>=total){finish();return}
+ if(!first)current++;
+ answered=false;$('next').disabled=true;$('feedback').textContent='Pick the correct answer!';$('round').textContent=`Question ${current} of ${total}`;$('bar').style.width=((current-1)/total*100)+'%';
+ let item=makeQuestion();answerValue=item.ans;$('question').textContent=item.q;
+ let choices=new Set([answerValue]);while(choices.size<4){let delta=rand(Math.max(8,Math.abs(answerValue)*.35+8))+1;let v=answerValue+(rand(2)?delta:-delta);if(v>=0)choices.add(v)}
+ let arr=[...choices].sort(()=>Math.random()-.5);$('answers').innerHTML='';
+ arr.forEach(v=>{let btn=document.createElement('button');btn.className='answer';btn.textContent=v;btn.onclick=()=>checkAnswer(btn,v);$('answers').appendChild(btn)});
+}
+function checkAnswer(btn,value){if(answered)return;answered=true;let buttons=[...document.querySelectorAll('.answer')];buttons.forEach(b=>b.disabled=true);
+ if(value===answerValue){btn.classList.add('correct');score+=10;streak++;best=Math.max(best,streak);correctCount++;$('feedback').textContent='🎉 Correct! Great work!';}
+ else{btn.classList.add('wrong');streak=0;$('feedback').textContent=`Almost! The answer is ${answerValue}.`;buttons.find(b=>+b.textContent===answerValue)?.classList.add('correct')}
+ $('next').disabled=false;updateStats();$('bar').style.width=(current/total*100)+'%';}
+function updateStats(){$('score').textContent=score;$('streak').textContent=best;$('accuracy').textContent=(current?Math.round(correctCount/current*100):0)+'%'}
+function finish(){$('question').textContent='Practice complete! 🏆';$('answers').innerHTML=`<div style="grid-column:1/-1;padding:20px;background:#f4f6ff;border-radius:18px"><h2 style="margin:0 0 8px">You scored ${score} points</h2><p style="color:#667085;margin:0">Correct answers: ${correctCount} / ${total}</p></div>`;$('feedback').textContent='Fantastic effort. Try another round and beat your score!';$('round').textContent='Round finished';$('next').disabled=true;$('bar').style.width='100%';}
+</script>
+</body>
+</html>
